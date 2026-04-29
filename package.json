@@ -1,0 +1,28 @@
+{
+  "name": "devops-infrastructure-project",
+  "version": "1.0.0",
+  "description": "Este é um projeto pessoal DevOps completo simulando um fluxo real de CI/CD: desenvolvimento de uma API, containerização com Docker, provisionamento de infraestrutura na AWS com Terraform, deploy automatizado via GitHub Actions, monitoramento com CloudWatch e execução da aplicação em Kubernetes.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanielmaia/devops-infrastructure-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hanielmaia/devops-infrastructure-project/issues"
+  },
+  "homepage": "https://github.com/hanielmaia/devops-infrastructure-project#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
