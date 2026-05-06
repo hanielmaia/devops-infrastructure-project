@@ -128,11 +128,41 @@ resource "aws_instance" "app_server" {
 
   user_data = <<-EOF
               #!/bin/bash
+
               apt update -y
-              apt install -y docker.io git
+              apt install -y docker.io git nginx
+
               systemctl enable docker
               systemctl start docker
+
+              systemctl enable nginx
+              systemctl start nginx
+
               usermod -aG docker ubuntu
+
+              cat > /etc/nginx/sites-available/devops-api <<'NGINX'
+              server {
+                  listen 80;
+                  server_name _;
+
+                  location / {
+                      proxy_pass http://localhost:3000;
+
+                      proxy_http_version 1.1;
+
+                      proxy_set_header Host $host;
+                      proxy_set_header X-Real-IP $remote_addr;
+                      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                      proxy_set_header X-Forwarded-Proto $scheme;
+                  }
+              }
+              NGINX
+
+              ln -sf /etc/nginx/sites-available/devops-api /etc/nginx/sites-enabled/devops-api
+              rm -f /etc/nginx/sites-enabled/default
+
+              nginx -t
+              systemctl restart nginx
               EOF
 
   tags = {
