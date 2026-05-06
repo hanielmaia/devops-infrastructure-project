@@ -20,7 +20,7 @@ const tasks = [
 
 app.get("/", (req, res) => {
   res.json({
-    message: "Teste de mensagem do servidor, testando CI/CD.",
+    message: "Add nginx setup to Terraform user data",
     version: "1.0.0"
   });
 });
