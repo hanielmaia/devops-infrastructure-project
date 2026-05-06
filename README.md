@@ -376,3 +376,9 @@ Os seguintes secrets precisam ser configurados no repositório:
 - Porta `3000` fechada para acesso público
 - Pipeline CI/CD criada com GitHub Actions
 - Deploy automático para AWS EC2 funcionando
+- Manifests Kubernetes criados
+- Aplicação executando localmente em cluster Kind
+- Deployment Kubernetes com 2 réplicas configurado
+- Service Kubernetes criado para expor a aplicação
+- Readiness Probe e Liveness Probe configuradas
+- Requests e limits de recursos configurados
