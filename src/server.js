@@ -20,7 +20,7 @@ const tasks = [
 
 app.get("/", (req, res) => {
   res.json({
-    message: "DevOps API Project is running!",
+    message: "Teste de mensagem do servidor, testando CI/CD.",
     version: "1.0.0"
   });
 });
